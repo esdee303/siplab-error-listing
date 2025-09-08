@@ -15,8 +15,6 @@ async function fetchData() {
           <td>${result.source}</td>
           <td>${result.sbc_status}</td>
           <td>${result.status}</td>
-          <td>${result.calls_in}</td>
-          <td>${result.calls_out}</td>
         `;
         tbody.append(row);
       }

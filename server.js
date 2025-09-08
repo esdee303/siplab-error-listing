@@ -43,7 +43,7 @@ app.get('/data', async (req, res) => {
     const normalized = results.map((result, i) => normalizeData(URLs[i], result));
     console.log(normalized);
     res.json({
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toLocaleString("nl-BE", { timeZone: "CET"}),
       results: normalized,
     });
   } catch (err) {
