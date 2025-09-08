@@ -27,4 +27,4 @@ async function fetchData() {
 }
 
 fetchData();
-setInterval(fetchData, 5000);
+setInterval(fetchData, 30000);

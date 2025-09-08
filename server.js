@@ -51,26 +51,6 @@ app.get('/data', async (req, res) => {
     res.status(500).json({ error: 'Kon externe data niet ophalen' });
   }
 });
-/*
-// Send GET Every 10 seconds 
-async function pollData() {
-  try {
-    // const response = await fetch('https://localhost:9000/axa/purecloud/status');
-    const results = await Promise.all(URLs.map(url => fetch(url).then(res => res.json())));
-    const normalized = results.map((result, i) => normalizeData(URLs[i], result));
-    
-    dataHistory.push({
-      timestamp: new Date().toISOString(),
-      results: normalized
-    });
-    // if (dataHistory.length > 50) dataHistory.shift();
-    console.log("New data retrieved: ", normalized);
-  } catch (err) {
-    console.error('Error retrieving data: ', err.message);
-  }
-}*/
-
-// setInterval(pollData, 10000)
 
 app.listen(port, () => {
   console.log(`Server active on http://localhost:${port}`);
