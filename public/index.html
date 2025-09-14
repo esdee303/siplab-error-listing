@@ -5,34 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SIP LAB CLIENT</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    
-  </style>
 </head>
 <body>
+  <div id="settings">
+    <label for="pollingInterval">Polling Interval</label>
+    <select name="pollingInterval" id="polling-interval">
+      <option value="5000">5 seconds</option>
+      <option value="10000">10 seconds</option>
+      <option value="20000">20 seconds</option>
+      <option value="30000" selected>30 seconds</option>
+      <option value="45000">45 seconds</option>
+      <option value="60000">60 seconds</option>
+      <option value="90000">90 seconds</option>
+      <option value="120000">120 seconds</option>
+    </select>
+  </div>
+  <h2>Data Table</h2>
   <table id="dataTable">
     <thead>
       <tr>
-        <th>Timestamp</th>
         <th>Source</th>
+        <th>Datetime</th>
         <th>SBC Status</th>
         <th>Status</th>
         <th>Calls In</th>
         <th>Calls Out</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tr id="purecloud-data"></tr>
+      <tr id="telenet-data"></tr>
+      <tr id="teams-data"></tr>
+    </tbody>
   </table>
+  <h2>Error Table</h2>
   <table id="errorTable">
     <thead>
       <tr>
-        <th>Timestamp</th>
         <th>Source</th>
+        <th>Datetime</th>
         <th>SBC Status</th>
         <th>Status</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tr id="purecloud-error"></tr>
+      <tr id="telenet-error"></tr>
+      <tr id="teams-error"></tr>
+    </tbody>
   </table>
   <script src="index.js"></script>
 </body>
