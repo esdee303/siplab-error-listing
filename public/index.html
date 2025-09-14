@@ -6,14 +6,24 @@
   <title>SIP LAB CLIENT</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background: #f2f2f2; }
+    
   </style>
 </head>
 <body>
   <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Source</th>
+        <th>SBC Status</th>
+        <th>Status</th>
+        <th>Calls In</th>
+        <th>Calls Out</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <table id="errorTable">
     <thead>
       <tr>
         <th>Timestamp</th>

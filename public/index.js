@@ -3,20 +3,32 @@ async function fetchData() {
   try {
     const response = await fetch('/data');
     const data = await response.json();
-    console.log(data);
-    const tbody = document.querySelector('#dataTable tbody');
+    const tbodyData = document.querySelector('#dataTable tbody');
+    const tbodyError = document.querySelector('#errorTable tbody');
     const results = data.results;
     results.forEach((result) => {
-      if (!result.sbc_status === 'ok') {
+      console.log(result);
+      if (result.sbc_status === 'ok') {
+        tbodyData.innerHTML = '';
         const row = document.createElement('tr');
-        console.log(result);
+        row.innerHTML = `
+          <td>${result.datetime}</td>
+          <td>${result.source}</td>
+          <td>${result.sbc_status}</td>
+          <td>${result.status}</td>
+          <td>${result.calls_in}</td>
+          <td>${result.calls_out}</td>
+        `;
+        tbodyData.append(row);
+      } else {
+        const row = document.createElement('tr');
         row.innerHTML = `
           <td>${result.timestamp}</td>
           <td>${result.source}</td>
           <td>${result.sbc_status}</td>
           <td>${result.status}</td>
         `;
-        tbody.append(row);
+        tbodyError.append(row);
       }
     });
   } catch (err) {
