@@ -19,6 +19,26 @@ table {
   margin-left: 1rem;
 }
 
+.circle {
+  margin-left: 2rem;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.lime {
+  background-color: lime;
+}
+
+.gold {
+  background-color: gold;
+}
+
+.crimson {
+  background-color: crimson;
+}
+
 th,
 td {
   border: 1px solid #ccc;

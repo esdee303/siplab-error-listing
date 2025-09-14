@@ -1,8 +1,13 @@
+const circle = document.getElementById('circle');
+
 async function fetchData() {
-  console.info('Starting fetchData');
+  // console.info('Starting fetchData');
+  circle.classList.remove('lime')
+  circle.classList.add('gold')
   try {
     const response = await fetch('/data');
     const data = await response.json();
+ 
     const trPurecloudData = document.getElementById('purecloud-data');
     const trTeamsData = document.getElementById('teams-data');
     const trTelenetData = document.getElementById('telenet-data');
@@ -10,9 +15,11 @@ async function fetchData() {
     const trTeamsError = document.getElementById('teams-error');
     const trTelenetError = document.getElementById('telenet-error');
     const results = data.results;
+    circle.classList.remove('gold')
+    circle.classList.add('lime')
 
     results.forEach((result) => {
-      console.log(result);
+      // console.log(result);
       if (result.sbc_status === 'ok') {
          const cols = `
           <td>${result.source}</td>
@@ -49,6 +56,9 @@ async function fetchData() {
       }
     });
   } catch (err) {
+    circle.classList.remove('gold');
+    circle.classList.remove('lime');
+    circle.classList.add('crimson');
     console.error('Error retrieving data', err.message);
   }
 }
@@ -65,10 +75,10 @@ const startPolling = (delay) => {
 }
 
 const select = document.getElementById('polling-interval');
-console.log(Number(select.value))
+// console.log(Number(select.value))
 startPolling(Number(select.value));
 
 select.addEventListener('change', (event) => {
-  console.log(event.target.value)
+  // console.log(event.target.value)
   startPolling(Number(event.target.value));
 });
